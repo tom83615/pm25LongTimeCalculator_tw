@@ -39,19 +39,45 @@
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
 
     <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" href="css/jquery.mobile/jquery.mobile-1.4.5.min.css">
     <title>Hello World</title>
 </head>
 
-<body>
-    <div class="app">
-        <h1>PhoneGap</h1>
-        <div id="deviceready" class="blink">
-            <p class="event listening">Connecting to Device</p>
-            <p class="event received">Device is Ready</p>
-        </div>
-    </div>
+
+<div data-role="page" id="pageone">
+  <div data-role="header">
+    <h1>我是一個測試</h1>
+  </div>
+
+  <div data-role="content">
+    <p>嗨！</p>
+    <a href="#pagetwo" data-rel="dialog">page2</a>
+  </div>
+
+  <div data-role="footer">
+  <h1>footer</h1>
+  </div>
+</div> 
+
+<div data-role="page" id="pagetwo">
+  <div data-role="header">
+    <h1>我是一個對話框！</h1>
+  </div>
+
+  <div data-role="content">
+    <p>你好。</p>
+    <a href="#pageone">page1</a>
+  </div>
+
+  <div data-role="footer">
+  <h1>footer</h1>
+  </div>
+</div> 
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
+
+<script type="text/javascript" src="js/jquery-2.2.4.min.js"></script>
+<script type="text/javascript" src="js/jquery.mobile/jquery.mobile-1.4.5.min.js"></script>
     <script type="text/javascript">
         app.initialize();
     </script>
