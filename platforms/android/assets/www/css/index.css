@@ -113,3 +113,10 @@ h1 {
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
 }
+
+img.share{
+    height:64;
+    width:64;
+    margin:1px;
+    padding:1px;
+}
