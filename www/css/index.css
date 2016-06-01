@@ -115,14 +115,15 @@ h1 {
 }
 
 img.share{
-    width:100%;
+    width:70%;
+    height: auto;
     text-align:center;
-    margin:0px;
-    padding:0px;
+    border-radius: 10px !important;
 }
-div.shsre{
+div.share{
     background-repeat:repeat repeat;
     text-align:center;
     overflow:hidden;
     float:initial;
+    padding:2px ;
 }
