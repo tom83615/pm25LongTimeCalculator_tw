@@ -115,8 +115,14 @@ h1 {
 }
 
 img.share{
-    height:64;
-    width:64;
-    margin:1px;
-    padding:1px;
+    width:100%;
+    text-align:center;
+    margin:0px;
+    padding:0px;
+}
+div.shsre{
+    background-repeat:repeat repeat;
+    text-align:center;
+    overflow:hidden;
+    float:initial;
 }
