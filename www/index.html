@@ -10,14 +10,35 @@
     <link rel="stylesheet" type="text/css" href="css/index.css" />
     <link rel="stylesheet" href="css/jquery.mobile/jquery.mobile-1.4.5.min.css">
     <link rel="stylesheet" href="css/pm25Calculator.min.css">
-    <link rel="stylesheet" href="css/themes/jquery.mobile.icons.min.css" />
+    <link rel="stylesheet" href="css/themes/jquery.mobile-1.4.5.icons.min.css" />
     <title>pm25Calculator</title>
 </head>
 
+<div id="pagehome" data-role="page">
+    <div data-position="inline" data-role="header">
+        <h1>pm2.5終生濃度計算器</h1>
+        <div data-iconpos="left" data-role="navbar" class="nav">
+        </div>
+    </div>
+</div>
 <div id="pageInpute" data-role="page">
     <div data-position="inline" data-role="header">
         <h1>輸入資料</h1>
         <div data-iconpos="left" data-role="navbar" class="nav">
+        </div>
+        <div class="ui-content ui-page-theme-a" data-form="ui-page-theme-a" role="main">
+            <div class="inputBirth">
+                <form method="" action="">
+                    <label for="birth">請輸入出生月分</label>
+                    <input type="month" name="birth" id="birth">
+                    <input type="button" value="確定" class='submit'>
+                </form>
+            </div>
+            <div class="inputMore">
+                <form method="" action="#">
+                    <input type="button" value="重設生日" class='reSetBirth'>
+                </form>
+            </div>
         </div>
     </div>
 </div>
@@ -29,7 +50,7 @@
         <div class="ui-content ui-page-theme-a" data-form="ui-page-theme-a" role="main">
             <div data-form="ui-body-a" class="ui-body ui-body-a ui-corner-all">
                 <p class = "" >
-                    想要分享你的資料嗎?
+                    想要分享你的結果嗎?
                 </p>
                 <div class="ui-grid-c">
                     <div class="ui-block-a">
@@ -92,6 +113,7 @@
     <script type="text/javascript" src="js/jquery-2.2.4.min.js"></script>
     <script type="text/javascript" src="js/pagemask.js"></script>
     <script type="text/javascript" src="js/jquery.mobile/jquery.mobile-1.4.5.min.js"></script>
+    <script type="text/javascript" src="js/input.js"></script>
     <script type="text/javascript">
         app.initialize();
     </script>
