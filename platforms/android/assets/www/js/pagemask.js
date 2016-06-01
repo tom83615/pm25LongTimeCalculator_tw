@@ -15,5 +15,5 @@ $(document).ready(function(){
                                 "\t\t\t"+'其他'+"\n"+
                             "\t\t</a>\n"+
                         "\t</li>\n"+
-                    "</ul>");
+                    "</ul>\n");
 });
