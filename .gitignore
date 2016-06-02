@@ -2,5 +2,5 @@ pm25Calculator.sublime-project
 pm25Calculator.sublime-workspace
 platforms/android/build
 release-key.keystore
-gamp_key.js
+google_map_key.js
 .apk
