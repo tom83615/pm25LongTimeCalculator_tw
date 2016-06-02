@@ -137,6 +137,10 @@
                 "nospace":{
                     "regex":/^\S*$/,
                     "alertText":"* 不接受空格"
+                },
+                "monthYear":{
+                    "regex":/^[0-9]{4}-[0-9]{2}$/,
+                    "alertText":"* 請符合格式YYYY-MM"
                 }
             };
         }

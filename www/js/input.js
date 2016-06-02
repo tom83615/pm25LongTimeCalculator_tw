@@ -17,15 +17,14 @@ $(document).ready(function(){
             return;
         }
         else {
-        $("div.inputBirth").hide(500);
-        $("div.inputMore").show(500);
-        timeBirth = $("input#birth").val();
-        $("input#birth2").val(timeBirth);
-        alert();
+            $("div.inputBirth").hide(500);
+            $("div.inputMore").show(500);
+            timeBirth = $("input#birth").val();
+            $("input#start0").val(timeBirth);
         }
     });//設定生日年月
 
-    $("div.inputMore").find("input.reSetBirth").click(function(){
+    $("input#start0").click(function(){
         $("div.inputMore").hide(800);
         $("div.inputBirth").show(800);
     });//重設生日年月

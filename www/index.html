@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="css/pm25Calculator.min.css">
     <link rel="stylesheet" href="css/jquery.mobile/jquery.mobile.icons-1.4.5.min.css" />
     <link rel="stylesheet" href="css/validationEngine/validationEngine.jquery.css">
+    
     <title>pm25Calculator</title>
 </head>
 
@@ -31,24 +32,23 @@
             <div class="inputBirth">
                 <form method="" action="" id="inputBirth">
                     <label for="birth">請輸入出生月分</label>
-                    <input type="month" name="birth" id="birth" class="validate[required]">
+                    <input type="month" name="birth" id="birth" class="validate[required,custom[monthYear]]">
                     <input type="button" value="確定" class='submit'>
                 </form>
             </div>
             <div class="inputMore">
+                <p>OK!! 現在依時間填入你曾經在哪住過</p>
                 <form method="" action="#" id="inputMore" >
-                    <input type="button" value="重設生日" class='reSetBirth'>
                     <div data-role="fieldcontain">
-                        <div class="ui-block-a">
-                            <label for="birth2" class="ui-hidden-accessible "></label>
-                            <input type="month"  id="birth2"  disabled>
-                        </div>
-                        <div class="ui-block-c">
-                            <label for="to"> 到 </label>
-                        </div>
-                        <div class="ui-block-b">
-                            <input type="month" name="to" id="to">
-                        </div>
+                        <label for="start0">從</label>
+                        <input type="month"  id="start0" class= "start0">
+                        <label for="end0"> 到 </label>
+                        <input type="month" name="end0" id="end0" class="validate[required,custom[monthYear]]">
+                        <label for="local0" class="">地點</label>
+                        <input id="local0" class="controls" type="text" placeholder="地址，或是其他資訊">
+                        <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+                        <div id="map"></div>
+                    </form>
                     </div>
                 </form>
             </div>
@@ -135,7 +135,8 @@
     <script src="js/google_map_key.js"></script>
     <!--key注入，若是你沒有這個，可以透過js/google_map_key-example改名.js-->
     <script src="js/input.js"></script>
-    <!--處理輸入頁面-->
+    <script src="js/map_autocomplate.js"></script>
+    <!--處理輸入頁面及googlemap-->
     <script type="text/javascript">
         app.initialize();
     </script>
