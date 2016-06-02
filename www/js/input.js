@@ -1,8 +1,12 @@
 $(document).ready(function(){
+    $('#inputBirth').validationEngine();
+    $('#inputMore').validationEngine();
+
     if(typeof timeBirth == "undefined" || timeBirth === null){
         $(".inputMore").hide();
         timeBirth = null;
     }//inital
+
     var d = new Date();
     var nowY = d.getFullYear();
     var nowM = d.getMonth();
@@ -17,7 +21,7 @@ $(document).ready(function(){
         $("div.inputMore").show(500);
         timeBirth = $("input#birth").val();
         $("input#birth2").val(timeBirth);
-        alert(timeBirth);
+        alert();
         }
     });//設定生日年月
 
@@ -26,4 +30,7 @@ $(document).ready(function(){
         $("div.inputBirth").show(800);
     });//重設生日年月
 
+    function setMY(MY){
+        var patt = "([0-9]{4})-([0-9]{2})";
+    }
 });
