@@ -18,7 +18,7 @@ $(document).ready(function(){
         timeBirth = $("input#birth").val();
         $("input#birth2").val(timeBirth);
         alert(timeBirth);
-        }      
+        }
     });//設定生日年月
 
     $("div.inputMore").find("input.reSetBirth").click(function(){
