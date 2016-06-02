@@ -63,6 +63,6 @@ function initAutocomplete() {
     });
     map.fitBounds(bounds);
   });
-
-    document.write("<script src='https://maps.googleapis.com/maps/api/js?key="+GOOGLE_MAP_KEY+"YOUR_API_KEY&libraries=places&callback=initAutocomplete async defer></script>");
+   
 }
+document.write("<script src='https://maps.googleapis.com/maps/api/js?key="+GOOGLE_MAP_KEY+"&libraries=places&callback=initAutocomplete' async defer></script>");

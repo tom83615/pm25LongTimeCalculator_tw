@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="css/pm25Calculator.min.css">
     <link rel="stylesheet" href="css/jquery.mobile/jquery.mobile.icons-1.4.5.min.css" />
     <link rel="stylesheet" href="css/validationEngine/validationEngine.jquery.css">
-    
+
     <title>pm25Calculator</title>
 </head>
 
@@ -44,10 +44,9 @@
                         <input type="month"  id="start0" class= "start0">
                         <label for="end0"> 到 </label>
                         <input type="month" name="end0" id="end0" class="validate[required,custom[monthYear]]">
-                        <label for="local0" class="">地點</label>
-                        <input id="local0" class="controls" type="text" placeholder="地址，或是其他資訊">
-                        <input id="pac-input" class="controls" type="text" placeholder="Search Box">
-                        <div id="map"></div>
+
+                        <input id="pac-input" class="controls" type="text" placeholder="地址，或是其他資訊">
+                        <div id="map" data-form="ui-body-a" class="ui-body ui-body-a ui-corner-all ui-content"></div>
                     </form>
                     </div>
                 </form>
@@ -133,7 +132,7 @@
     <script src="js/validationEngine/jquery.validationEngine-zh_TW.js"></script>
     <!--validationEngine-->
     <script src="js/google_map_key.js"></script>
-    <!--key注入，若是你沒有這個，可以透過js/google_map_key-example改名.js-->
+    <!--key注入，若是你沒有這個，可以透過js/google_map_key-example.js改名-->
     <script src="js/input.js"></script>
     <script src="js/map_autocomplate.js"></script>
     <!--處理輸入頁面及googlemap-->
