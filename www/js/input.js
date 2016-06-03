@@ -1,9 +1,14 @@
 $(document).ready(function(){
-    $('#inputBirth').validationEngine();
-    $('#inputMore').validationEngine();
+    $('#formBirth').validationEngine('attach', {
+        promptPosition: 'topLeft: 50,0'
+    });
+    $('#formMore').validationEngine('attach', {
+        promptPosition: 'topLeft: 50,0'
+    });
+    //設置輸入驗證
 
     if(typeof timeBirth == "undefined" || timeBirth === null){
-        $(".inputMore").hide();
+        $(".inputMore").slideToggle();
         timeBirth = null;
     }//inital
 
@@ -11,23 +16,31 @@ $(document).ready(function(){
     var nowY = d.getFullYear();
     var nowM = d.getMonth();
     //設定現在日期
-
-    $("div.inputBirth").find("input.submit").click(function(){
-        if($("input#birth").val() == ""){
+    $("#formBirth").find("input.submit").click(function(){
+        if($("#formBirth").validationEngine('validate') == false){
             return;
         }
         else {
-            $("div.inputBirth").hide(500);
-            $("div.inputMore").show(500);
+            $("div.inputBirth").slideToggle(500);
+            $("div.inputMore").slideToggle(500);
             timeBirth = $("input#birth").val();
             $("input#start0").val(timeBirth);
         }
-    });//設定生日年月
+    });
 
     $("input#start0").click(function(){
-        $("div.inputMore").hide(800);
-        $("div.inputBirth").show(800);
-    });//重設生日年月
+        $("div.inputMore").slideToggle(800);
+        $("div.inputBirth").slideToggle(800);
+    });//重設生日
+
+    $("#formMore").find("input.submit").click(function(){
+        if($("#formMore").validationEngine('validate') == false){
+            return;
+        }
+        else {
+            alert("do it ");
+        }
+    });//設定完成一筆
 
     function setMY(MY){
         var patt = "([0-9]{4})-([0-9]{2})";
