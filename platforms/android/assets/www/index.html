@@ -10,7 +10,9 @@
     <link rel="stylesheet" type="text/css" href="css/index.css" />
     <link rel="stylesheet" href="css/jquery.mobile/jquery.mobile-1.4.5.min.css">
     <link rel="stylesheet" href="css/pm25Calculator.min.css">
-    <link rel="stylesheet" href="css/themes/jquery.mobile-1.4.5.icons.min.css" />
+    <link rel="stylesheet" href="css/jquery.mobile/jquery.mobile.icons-1.4.5.min.css" />
+    <link rel="stylesheet" href="css/validationEngine/validationEngine.jquery.css">
+
     <title>pm25Calculator</title>
 </head>
 
@@ -28,15 +30,25 @@
         </div>
         <div class="ui-content ui-page-theme-a" data-form="ui-page-theme-a" role="main">
             <div class="inputBirth">
-                <form method="" action="">
+                <form method="" action="" id="inputBirth">
                     <label for="birth">請輸入出生月分</label>
-                    <input type="month" name="birth" id="birth">
+                    <input type="month" name="birth" id="birth" class="validate[required,custom[monthYear]]">
                     <input type="button" value="確定" class='submit'>
                 </form>
             </div>
             <div class="inputMore">
-                <form method="" action="#">
-                    <input type="button" value="重設生日" class='reSetBirth'>
+                <p>OK!! 現在依時間填入你曾經在哪住過</p>
+                <form method="" action="#" id="inputMore" >
+                    <div data-role="fieldcontain">
+                        <label for="start0">從</label>
+                        <input type="month"  id="start0" class= "start0">
+                        <label for="end0"> 到 </label>
+                        <input type="month" name="end0" id="end0" class="validate[required,custom[monthYear]]">
+
+                        <input id="pac-input" class="controls" type="text" placeholder="地址，或是其他資訊">
+                        <div id="map" data-form="ui-body-a" class="ui-body ui-body-a ui-corner-all ui-content"></div>
+                    </form>
+                    </div>
                 </form>
             </div>
         </div>
@@ -50,7 +62,7 @@
         <div class="ui-content ui-page-theme-a" data-form="ui-page-theme-a" role="main">
             <div data-form="ui-body-a" class="ui-body ui-body-a ui-corner-all">
                 <p class = "" >
-                    想要分享你的資料嗎?
+                    想要分享你的結果嗎?
                 </p>
                 <div class="ui-grid-c">
                     <div class="ui-block-a">
@@ -108,12 +120,22 @@
 
 
 
-    <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
-    <script type="text/javascript" src="js/jquery-2.2.4.min.js"></script>
-    <script type="text/javascript" src="js/pagemask.js"></script>
-    <script type="text/javascript" src="js/jquery.mobile/jquery.mobile-1.4.5.min.js"></script>
-    <script type="text/javascript" src="js/input.js"></script>
+    <script src="cordova.js"></script>
+    <script src="js/index.js"></script>
+    <!--原生檔案-->
+    <script src="js/jquery-2.2.4.min.js"></script>
+    <!--jquery-->
+    <script src="js/pagemask.js"></script>
+    <!--處理重複頁面-->
+    <script src="js/jquery.mobile/jquery.mobile-1.4.5.min.js"></script>
+    <script src="js/validationEngine/jquery.validationEngine.min.js"></script>
+    <script src="js/validationEngine/jquery.validationEngine-zh_TW.js"></script>
+    <!--validationEngine-->
+    <script src="js/google_map_key.js"></script>
+    <!--key注入，若是你沒有這個，可以透過js/google_map_key-example.js改名-->
+    <script src="js/input.js"></script>
+    <script src="js/map_autocomplate.js"></script>
+    <!--處理輸入頁面及googlemap-->
     <script type="text/javascript">
         app.initialize();
     </script>
