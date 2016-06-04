@@ -13,11 +13,17 @@ $(document).ready(function(){
     var start = $("input#start");
     var end = $("input#end");
     var places = $("input#pac-input");
-    var edit = 0; // 0代表不修改 1以上代表修改某次資料
     //設定元件
+
+    var edit = 0; // 0代表不修改 1以上代表修改某次資料
+    var now = new Date();
+    var nowY = now.getFullYear().toString();
+    var nowM = (now.getMonth()+1 < 10)? '0'+(now.getMonth()+1) : ''+(now.getMonth()+1);
+    //全域變數
 
     if(typeof n == "undefined" || n === null){
         var n = 1;
+        $(".submitAll").toggle();
     }//inital
 
     $("#formMore").find("input.submit").click(function(){
@@ -39,11 +45,16 @@ $(document).ready(function(){
         }
         if(edit == 0){//新增
             addRecordList(start.val(),end.val(),places.val());
+            //設定
+            if(end.val() == nowY+"-"+nowM){
+                $(".submitAll").toggle();
+            }
+            //最後一筆時顯示按鈕
             start.val(nextMonth(end.val()));
             start.attr("disabled","disabled");
             end.val("");
             places.val("");
-            //設定並重設
+            //重設
             n++;
 
         }else{//修改
@@ -62,7 +73,7 @@ $(document).ready(function(){
                 var nextStart = $(".start"+(edit+1));
                 nextStart.text(nextMonth(end.val()));
             }
-            //尋找預設定的開始日期，並一並更新下一筆開始值
+            //尋找預設定的開始日期，並更新下一筆開始值
 
             end.val("");
             places.val("");
