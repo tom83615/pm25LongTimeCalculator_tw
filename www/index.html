@@ -9,8 +9,8 @@
 
     <link rel="stylesheet" type="text/css" href="css/index.css" />
     <link rel="stylesheet" href="css/jquery.mobile/jquery.mobile-1.4.5.min.css">
-    <link rel="stylesheet" href="css/pm25Calculator.min.css">
     <link rel="stylesheet" href="css/jquery.mobile/jquery.mobile.icons-1.4.5.min.css" />
+    <link rel="stylesheet" href="css/pm25Calculator.min.css">
     <link rel="stylesheet" href="css/validationEngine/validationEngine.jquery.css">
 
     <title>pm25Calculator</title>
@@ -29,33 +29,31 @@
         <h1>輸入資料</h1>
         <div data-iconpos="left" data-role="navbar" class="nav">
         </div>
-        <div class="ui-content ui-page-theme-a" data-form="ui-page-theme-a" role="main">
-            <div class="inputBirth">
-                <form method="" action="#" id="formBirth">
-                    <label for="birth">請輸入出生月分</label>
-                    <input type="month" name="birth" id="birth" class="validate[required,custom[monthYear]]">
-                    <input type="button" value="確定" class='submit'>
-                </form>
-            </div>
-            <div class="inputMore">
-                <p>OK!! 現在依時間填入你曾經在哪住過</p>
-                <form method="" action="#" id="formMore" >
-                    <div data-role="fieldcontain">
-                        <label for="start0">從</label>
-                        <input type="month"  id="start0" class= "start0">
-                        <label for="end0"> 到 </label>
-                        <input type="month" name="end0" id="end0" class="validate[required,custom[monthYear]]">
-
-                        <input id="pac-input" class="controls validate[required]" type="text" placeholder="地址，或是其他資訊">
-                        <div id="map_canvas"  class="ui-body ui-body-a ui-corner-all" data-form="ui-body-a"> 
-            			<!--map-->
-        				</div>
-        				<input type="button" value="確定" class='submit'>
-        			</div>
-                </form>
-            </div>
-        </div>
     </div>
+    <div class="ui-content ui-page-theme-a" data-form="ui-page-theme-a" role="main">
+        <div class="input">
+            <p>依時間填入你曾經在哪住過</p>
+            <form method="" action="#" id="formMore" >
+                    <label for="start">從</label>
+                    <input type="month"  id="start" class="validate[required,custom[monthYear]]">
+                    <label for="end"> 到 </label>
+                    <input type="month" name="end" id="end" class="validate[required,custom[monthYear]]">
+
+                    <input id="pac-input" class="controls validate[required]" type="text" placeholder="地址或是其他資訊">
+                    <div id="map_canvas"  class="ui-body ui-body-a ui-corner-all" data-form="ui-body-a"> 
+                    <!--map-->
+                    </div>
+                    <input type="button" value="確定" class='submit'>
+            </form>
+        </div>
+        <ul data-role="listview" data-inset="true" id="record">
+              <li data-role="divider"><strong>紀錄</strong>  ( 右方按鈕可以修改資料 )</li>
+        </ul>
+    </div>
+</div>
+
+
+
 </div>
 
 <div id="pageShare" data-role="page">
@@ -86,7 +84,7 @@
                     <div class="ui-block-c">
                         <div class = "share">
                             <a href="">
-                                <img src="img/icons-png/twitter_icon.png" class="share"/>
+                                <img src="img/icons-png/twitter_icon.png " class="share"/>
                             </a>
                         </div>
                     </div>
