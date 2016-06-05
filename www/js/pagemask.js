@@ -7,7 +7,7 @@ $(document).ready(function(){
                         "\t</li>\n"+
                         "\t<li>\n"+
                             "\t\t<a data-icon='"+'cloud'+"' href='"+'#pageShare'+"' data-transition='none'>\n"+
-                                "\t\t\t"+'分享 &amp; 儲存'+"\n"+
+                                "\t\t\t"+'分享'+"\n"+
                             "\t\t</a>\n"+
                         "\t</li>\n"+
                         "\t<li>\n"+

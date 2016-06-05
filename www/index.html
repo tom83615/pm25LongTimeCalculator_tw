@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-TW">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="format-detection" content="telephone=no" />
-    <meta name="msapplication-tap-highlight" content="no" />
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <meta charset="utf-8" >
+    <meta name="format-detection" content="telephone=no" >
+    <meta name="msapplication-tap-highlight" content="no" >
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" >
 
-    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" >
     <link rel="stylesheet" href="css/jquery.mobile/jquery.mobile-1.4.5.min.css">
-    <link rel="stylesheet" href="css/jquery.mobile/jquery.mobile.icons-1.4.5.min.css" />
+    <link rel="stylesheet" href="css/jquery.mobile/jquery.mobile.icons-1.4.5.min.css" >
     <link rel="stylesheet" href="css/pm25Calculator.min.css">
     <link rel="stylesheet" href="css/validationEngine/validationEngine.jquery.css">
 
@@ -46,7 +46,7 @@
                     <input type="button" value="確定" class='submit'>
             </form>
         </div>
-        <ul data-role="listview" data-inset="true" id="record">
+        <ul  id="record" data-role="listview" data-inset="true">
               <li data-role="divider"><strong>紀錄</strong>  ( 右方按鈕可以修改資料 )</li>
         </ul>
         <a data-icon="star" data-role="button" href="#pageResult"' data-transition='slide' class="submitAll">
@@ -62,12 +62,21 @@
         </div>
     </div>
     <div class="ui-content ui-page-theme-a" data-form="ui-page-theme-a" role="main">
+        <div data-form="ui-body-a" class="ui-body ui-body-a ui-corner-all">
+                <p id = "totalpm25" >
+                </p>
+        </div>
+        <form class="ui-filterable">
+            <input id="resultFilter" data-type="search">
+        </form>
+        <ul id="results" data-role="listview" data-inset="true" data-shadow="false" data-filter="true" data-input="#resultFilter">
+        </ul>
     </div>
 </div>
 
 <div id="pageShare" data-role="page">
     <div data-position="inline" data-role="header">
-        <h1>分享 &amp; 儲存</h1>
+        <h1>分享</h1>
         <div data-iconpos="left" data-role="navbar" class="nav">
         </div>
         <div class="ui-content ui-page-theme-a" data-form="ui-page-theme-a" role="main">
@@ -108,7 +117,7 @@
             </div>
         </div>
         <div class="ui-content ui-page-theme-a" data-form="ui-page-theme-a" role="main">
-            <div data-form="ui-body-a" class="ui-body ui-body-a ui-corner-all">
+            <!-- <div data-form="ui-body-a" class="ui-body ui-body-a ui-corner-all">
                 <p class = "" >
                     儲存及復原資料。
                 </p>
@@ -119,7 +128,7 @@
                 <button class=" ui-btn ui-btn-a ui-corner-all" data-icon="star">
                    復原
                 </button>
-            </div>
+            </div> -->
         </div>
     </div>
 </div>
@@ -152,8 +161,11 @@
     <script src="js/validationEngine/jquery.validationEngine-zh_TW.js"></script>
     <!--validationEngine-->
 
+    <script src="js/getData.js"></script>
     <script src="js/input.js"></script>
-    <!--處理輸入頁面-->
+    <!--處理輸入頁面及取得資料-->
+    <script src="js/data.js" async defer></script>
+    <!--pm2.5資料-->
     <script type="text/javascript">
         app.initialize();
     </script>

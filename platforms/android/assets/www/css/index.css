@@ -130,6 +130,6 @@ div.share{
     float:initial;
     padding:2px ;
 }
-#map{
-	height:300px;
+#map_canvas{
+    height: 200px;
 }
