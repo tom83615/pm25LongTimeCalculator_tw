@@ -8,7 +8,7 @@ var sum = 0;
 $(document).ready(function(){
     $(".submitAll").click(function(){
         $("#totalpm25").parent().toggle();
-        $("#totalpm25").html("終生曝露濃度：<strong>"+Math.round(sum/1000)+"</strong>毫克");
+        $("#totalpm25").html("終生曝露量：<strong>"+Math.round(sum/1000)+"</strong>毫克");
     });
 });
 

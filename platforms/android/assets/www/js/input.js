@@ -24,6 +24,7 @@ $(document).ready(function(){
     if(typeof n == "undefined" || n === null){
         var n = 1;
         $(".submitAll").toggle();
+        $("#totalpm25").parent().toggle();
     }//inital
 
     $("#formMore").find("input.submit").click(function(){
@@ -83,8 +84,6 @@ $(document).ready(function(){
             $("p#introInput").text("依時間填入你曾經在哪住過");
         }
     });//設定完成一筆
-
-
     function addRecordList(startV,endV,placesV){
         var setTxt = "\t<li class='record"+n+"'>"+
             "\t\t<a href='#'>\n"+
@@ -96,6 +95,9 @@ $(document).ready(function(){
             "\t</li>";
         $("#record").append(setTxt).listview('refresh');
 
+        getData(startV,endV,placesV);
+        //這定義在getData.js中
+        
         $("a.edit").on("click", function(){
             edit = parseInt( $(this).attr("value") );
             var startEditV = $(this).prev().children(".start"+edit).text();
@@ -110,32 +112,32 @@ $(document).ready(function(){
             msg = "修改 " + startEditV + " 到 " + endEditV;
             $("p#introInput").text(msg);
         });//設定修改資料事件
-
     }//設定新欄位
-
-    function testStart(YM) {
-        var now = new Date();
-        var nowY = now.getFullYear();
-        now.setTime( Date.parse(YM) );
-        return (nowY - now.getFullYear() < 100)
-    }//判斷是否大於100歲
-
-    function testEnd(YM) {
-        var now = new Date();
-        return (Date.parse(YM) - now.getTime() <= 0)
-    }//判斷是否超過現在時間
-
-    function nextMonth(YM){
-        var now = new Date();
-        now.setTime( Date.parse(YM) );
-        if (now.getMonth() == 11) {
-            var next = new Date(now.getFullYear() + 1, 0, 1);
-        } else {
-            var next = new Date(now.getFullYear(), now.getMonth() + 1, 1);
-        }
-        var nextY = next.getFullYear().toString();
-        var dM = next.getMonth()+1;
-        var nextM = (dM < 10)? '0'+dM : ''+dM;
-        return nextY+"-"+nextM;
-    }//取得下個月份(YYYY-MM)
 });
+
+
+function testStart(YM) {
+    var now = new Date();
+    var nowY = now.getFullYear();
+    now.setTime( Date.parse(YM) );
+    return (nowY - now.getFullYear() < 100)
+}//判斷是否大於100歲
+
+function testEnd(YM) {
+    var now = new Date();
+    return (Date.parse(YM) - now.getTime() <= 0)
+}//判斷是否超過現在時間
+
+function nextMonth(YM){
+    var now = new Date();
+    now.setTime( Date.parse(YM) );
+    if (now.getMonth() == 11) {
+        var next = new Date(now.getFullYear() + 1, 0, 1);
+    } else {
+        var next = new Date(now.getFullYear(), now.getMonth() + 1, 1);
+    }
+    var nextY = next.getFullYear().toString();
+    var dM = next.getMonth()+1;
+    var nextM = (dM < 10)? '0'+dM : ''+dM;
+    return nextY+"-"+nextM;
+}//取得下個月份(YYYY-MM)
