@@ -13,7 +13,6 @@ $(document).ready(function(){
         $("#totalpm25").html(msghtml);
 
         var lineURL = $("#line_share").attr("href") + msg;
-        alert(lineURL);
         $("#line_share").attr("href",lineURL);
         //Line 設定
     });
