@@ -151,7 +151,9 @@
 
     <script src="js/google_map_key.js"></script>s
     <!--key注入，若是你沒有這個檔案，可以透過js/google_map_key-example.js改名-->
-    <script src='js/google_map_api.js' async defer></script>
+    <script> 
+    var api = "https://maps.googleapis.com/maps/api/js?key=" + GOOGLE_MAP_KEY + "&libraries=places&callback=initAutocomplete";
+    document.write("<script src='"+api+"' async defer><\/script>"); </script>
     <!--https://maps.googleapis.com/maps/api/js?key=GOOGLE_MAP_KEY&libraries=places&callback=initAutocomplete，取得自己的api-->
     <script src="js/map_autocomplate.js"></script>
 
