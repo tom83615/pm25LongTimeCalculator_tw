@@ -23,8 +23,9 @@ $(document).ready(function(){
 
     if(typeof n == "undefined" || n === null){
         var n = 1;
+        $("#record").hide(); 
         $(".submitAll").hide(); //沒填過先隱藏
-        $("#totalpm25").parent().toggle();
+        $("#totalpm25").parent().hide();
     }//inital
 
     $("#formMore").find("input.submit").click(function(){
@@ -47,8 +48,11 @@ $(document).ready(function(){
         if(edit == 0){//新增
             addRecordList(start.val(),end.val(),places.val());
             //設定
+
             $(".submitAll").show();
+            $("#record").show();
             //顯示按鈕 
+
             start.val(nextMonth(end.val()));
             start.attr("disabled","disabled");
             end.val("");
