@@ -1,0 +1,6 @@
+{
+  "name": "Pm25longtimecalculator tw",
+  "tagline": "pm2.5終生濃度計算器",
+  "body": "<script>document.location.href=\"/www/index.html\";</script>\r\n",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
