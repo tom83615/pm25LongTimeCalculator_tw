@@ -7,8 +7,14 @@ var sum = 0;
 
 $(document).ready(function(){
     $(".submitAll").click(function(){
-        $("#totalpm25").parent().toggle();
-        $("#totalpm25").html("終生曝露量：<strong>"+Math.round(sum/1000)+"</strong>毫克");
+        $("#totalpm25").parent().show();
+        var msg = "終生曝露量："+Math.round(sum/1000)+" 毫克";
+        var msghtml = "終生曝露量：<strong>"+Math.round(sum/1000)+"</strong> 毫克";
+        $("#totalpm25").html(msghtml);
+
+        var lineURL = $("#line_share").attr("href") + msg;
+        $("#line_share").attr("href",lineURL);
+        //Line 設定
     });
 });
 
