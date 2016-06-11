@@ -2,7 +2,7 @@
   "android": {
     "release": {
       "keystore": "release-key.keystore",
-      "alias": "cordova-demo"
+      "alias": "pm25Calculator"
     }
   }
 }
