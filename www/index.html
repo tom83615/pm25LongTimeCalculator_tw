@@ -133,10 +133,15 @@
     </div>
 </div>
 
-<div id="pageOther" data-role="page">
+<div id="pageInf" data-role="page">
     <div data-position="inline" data-role="header">
-        <h1>其他</h1>
+        <h1>資訊</h1>
         <div data-iconpos="left" data-role="navbar" class="nav">
+        </div>
+        <div class="ui-content ui-page-theme-a" data-form="ui-page-theme-a" role="main">
+            <ul id="information" data-role="listview" data-inset="true">
+                    <li data-role="divider">程式資訊</li>
+            </ul>
         </div>
     </div>
 </div>
@@ -168,6 +173,7 @@
     <!--處理輸入頁面及取得資料-->
     <script src="js/data.js" async defer></script>
     <!--pm2.5資料-->
+     <script src="js/information.js" async defer></script>
     <script type="text/javascript">
         app.initialize();
     </script>
