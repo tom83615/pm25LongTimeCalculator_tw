@@ -93,7 +93,10 @@ $(document).ready(function(){
             "\t\t\t<p class='start"+n+"'>"+startV+"</p>\n"+
             "\t\t\t<p class='end"+n+"'>"+endV+"</p>\n"+
             "\t\t</a>\n"+
+            /*
             "\t\t<a href='#' class='edit' value='"+n+"'></a>\n"+
+            用於修改資料
+            */
             "\t</li>";
         $("#record").append(setTxt).listview('refresh');
 
