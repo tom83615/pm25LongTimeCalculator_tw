@@ -23,9 +23,7 @@ $(document).ready(function(){
 
     if(typeof n == "undefined" || n === null){
         var n = 1;
-        $("#record").hide(); 
-        $(".submitAll").hide(); //沒填過先隱藏
-        $("#totalpm25").parent().hide();
+        inital();
     }//inital
 
     $("#formMore").find("input.submit").click(function(){
@@ -49,8 +47,9 @@ $(document).ready(function(){
             addRecordList(start.val(),end.val(),places.val());
             //設定
 
-            $(".submitAll").show();
-            $("#record").show();
+            $("#submitAll").show();
+            $("#deleteAll").show();
+            $("#records").show();
             //顯示按鈕 
 
             start.val(nextMonth(end.val()));
@@ -86,6 +85,14 @@ $(document).ready(function(){
             $("p#introInput").text("依時間填入你曾經在哪住過");
         }
     });//設定完成一筆
+
+    $("#deleteAll").click(function(){
+        $("#records").empty();
+        inital();
+        $("#results").empty().listview('refresh');;
+    });//刪除全部並初始化
+
+
     function addRecordList(startV,endV,placesV){
         var setTxt = "\t<li class='record"+n+"'>"+
             "\t\t<a href='#'>\n"+
@@ -98,7 +105,7 @@ $(document).ready(function(){
             用於修改資料
             */
             "\t</li>";
-        $("#record").append(setTxt).listview('refresh');
+        $("#records").append(setTxt).listview('refresh');
 
         getData(startV,endV,placesV);
         //這定義在getData.js中
@@ -118,6 +125,20 @@ $(document).ready(function(){
             $("p#introInput").text(msg);
         });//設定修改資料事件
     }//設定新欄位
+
+    function inital(){
+        start.val("");
+        end.val("");
+        places.val("");
+    	$("#records").hide(); 
+        $("#submitAll").hide(); 
+        $("#deleteAll").hide(); //沒填過先隱藏
+        $("#totalpm25").parent().hide();
+        start.attr("disabled",false);
+        var setTxt = '\n<li data-role="divider"><strong>紀錄</strong></li>\n';
+        $("#records").append(setTxt);
+    };//初始化
+
 });
 
 

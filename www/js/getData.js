@@ -1,13 +1,8 @@
-
-var DATA_START = "1961-01";
-var DATA_END = "2016-01";
 var sum = 0;
 var times = 0;
 
-
-
 $(document).ready(function(){
-    $(".submitAll").click(function(){
+    $("#submitAll").click(function(){
         $("#totalpm25").parent().show();
         var msg = "預計終生曝露濃度："+Math.round(sum/times)+" 微克/立方公尺/月";
         var msghtml = "預計終生曝露濃度：<strong>"+Math.round(sum/times)+"</strong> 微克/立方公尺/月";
@@ -17,6 +12,7 @@ $(document).ready(function(){
         $("#line_share").attr("href",lineURL);
         //Line 設定
     });
+
 });
 
 function getData(startV,endV,placesV) {
