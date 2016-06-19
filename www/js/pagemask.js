@@ -15,13 +15,6 @@ $(document).ready(function(){
                                 "\t\t\t"+'資訊'+"\n"+
                             "\t\t</a>\n"+
                         "\t</li>\n"+
-                    "</ul>\n");
-
-
-    $("#information").append("<li>\n"+
-                                "\t<a id='"+"aboutme" + "' href='"+'#aboutme'+"' data-rel='popup' >作者</a>\n"+
-                            "</li>\n"
-
-        );
-
+                    "</ul>\n"
+                    );
 });

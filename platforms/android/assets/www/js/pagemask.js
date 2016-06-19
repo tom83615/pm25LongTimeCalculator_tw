@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    $("div.nav").html("<ul>\n" +
+    $("div.nav").html("<ul>\n"+
                         "\t<li>\n"+
                             "\t\t<a data-icon='"+'edit'+"' href='"+'#pageInpute'+"' data-transition='none'>\n"+
                                 "\t\t\t"+'輸入資料'+"\n"+
@@ -11,9 +11,10 @@ $(document).ready(function(){
                             "\t\t</a>\n"+
                         "\t</li>\n"+
                         "\t<li>\n"+
-                            "\t\t<a data-icon='"+'info'+"' href='"+'#pageOther'+"' data-transition='none'>\n"+
-                                "\t\t\t"+'其他'+"\n"+
+                            "\t\t<a data-icon='"+'info'+"' href='"+'#pageInf'+"' data-transition='none'>\n"+
+                                "\t\t\t"+'資訊'+"\n"+
                             "\t\t</a>\n"+
                         "\t</li>\n"+
-                    "</ul>\n");
+                    "</ul>\n"
+                    );
 });
