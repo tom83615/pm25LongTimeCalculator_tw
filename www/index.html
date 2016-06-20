@@ -15,10 +15,10 @@
 
     <title>pm25Calculator</title>
 </head>
-
+<body>
 <div id="pagehome" data-role="page">
     <div data-position="inline" data-role="header">
-        <h1>pm2.5終生濃度計算器</h1>
+        <h1>pm2.5終生曝露濃度計算器</h1>
         <div data-iconpos="left" data-role="navbar" class="nav">
         </div>
     </div>
@@ -32,9 +32,6 @@
     </div>
     <div class="ui-content ui-page-theme-a" data-form="ui-page-theme-a" role="main">
         <div class="input">
-            <ul  id="record" data-role="listview" data-inset="true">
-                <li data-role="divider"><strong>紀錄</strong>  ( 右方按鈕可以修改資料 )</li>
-            </ul>
             <p id='introInput'>依時間填入你曾經在哪住過</p>
             <form method="" action="#" id="formMore" >
                     <label for="start">從</label>
@@ -49,8 +46,14 @@
                     <input type="button" value="確定" class='submit'>
             </form>
         </div>
-        <a data-icon="star" data-role="button" href="#pageResult"' data-transition='slide' class="submitAll">
+        <ul id="records" data-role="listview" data-inset="true">
+
+        </ul>
+        <a  id="submitAll" data-icon="star" data-role="button" href="#pageResult" data-transition="slide">
             填完了
+        </a>
+        <a  id="deleteAll" class="bgc-red" data-icon="delete" data-role="button" href="#">
+            清除所有資料
         </a>
     </div>
 </div>
@@ -133,10 +136,37 @@
     </div>
 </div>
 
-<div id="pageOther" data-role="page">
+<div id="pageInf" data-role="page">
     <div data-position="inline" data-role="header">
-        <h1>其他</h1>
+        <h1>資訊</h1>
         <div data-iconpos="left" data-role="navbar" class="nav">
+        </div>
+        <div class="ui-content ui-page-theme-a" data-form="ui-page-theme-a" role="main">
+            <ul id="information" data-role="listview" data-inset="true">
+                <li data-role="list-divider">程式資訊</li>
+                <li>
+                    <a id="aboutAuthor" href="infpage/aboutAuthor.html" data-transition="pop">作者</a>
+                </li>
+                <li>
+                    <a id="aboutData" href="infpage/aboutData.html" data-transition="pop">資料</a>
+                </li>
+                <li>
+                    <a id="aboutResult" href="infpage/aboutResult.html" data-transition="pop">結果</a>
+                </li>
+                <li>
+                    <a id="aboutRight" href="infpage/aboutRight.html" data-transition="pop">著作權</a>
+                </li>
+                <li data-role="list-divider">PM2.5</li>
+                <li>
+                    <a id="pm25Definition" href="infpage/pm25Definition.html" data-transition="pop">PM2.5定義</a>
+                </li>
+                <li>
+                    <a id="pm25Production" href="infpage/pm25Production.html" data-transition="pop">PM2.5生成與來源</a>
+                </li>
+                <li>
+                    <a id="pm25HealthEffect" href="infpage/pm25HealthEffect.html" data-transition="pop">PM2.5健康影響</a>
+                </li>
+            </ul>
         </div>
     </div>
 </div>
@@ -148,8 +178,10 @@
     <!--jquery-->
     <script src="js/pagemask.js"></script>
     <!--處理重複頁面-->
+    <script src="js/data.js" async defer></script>
+    <!--pm2.5資料-->
 
-    <script src="js/google_map_key.js"></script>s
+    <script src="js/google_map_key.js"></script>
     <!--key注入，若是你沒有這個檔案，可以透過js/google_map_key-example.js改名-->
     <script> 
     var api = "https://maps.googleapis.com/maps/api/js?key=" + GOOGLE_MAP_KEY + "&libraries=places&callback=initAutocomplete";
@@ -166,8 +198,7 @@
     <script src="js/getData.js"></script>
     <script src="js/input.js"></script>
     <!--處理輸入頁面及取得資料-->
-    <script src="js/data.js" async defer></script>
-    <!--pm2.5資料-->
+    
     <script type="text/javascript">
         app.initialize();
     </script>

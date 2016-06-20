@@ -1,21 +1,18 @@
-
-var DATA_START = "1961-01";
-var DATA_END = "2016-01";
 var sum = 0;
-
-
+var times = 0;
 
 $(document).ready(function(){
-    $(".submitAll").click(function(){
+    $("#submitAll").click(function(){
         $("#totalpm25").parent().show();
-        var msg = "終生曝露量："+Math.round(sum/1000)+" 毫克";
-        var msghtml = "終生曝露量：<strong>"+Math.round(sum/1000)+"</strong> 毫克";
+        var msg = "預計終生曝露濃度："+Math.round(sum/times)+" 微克/立方公尺/月";
+        var msghtml = "預計終生曝露濃度：<strong>"+Math.round(sum/times)+"</strong> 微克/立方公尺/月";
         $("#totalpm25").html(msghtml);
 
         var lineURL = $("#line_share").attr("href") + msg;
         $("#line_share").attr("href",lineURL);
         //Line 設定
     });
+
 });
 
 function getData(startV,endV,placesV) {
@@ -65,32 +62,31 @@ function prapareUIData(startV,endV,lat,lon){
     var currectYM = currectY+"-"+currectM;
     while(currect.getTime() <= end.getTime() ){
         if(currect.getTime() < Date.parse(DATA_START) || currect.getTime() >= Date.parse(DATA_END)){
-            var data = {timeYM:currectYM, pm25C:"無資料", pm25M:"無資料", site:"無資料", distence:""};
+            var data = {timeYM:currectYM, pm25:"無資料", site:"無資料", distence:""};
             setUI(data);
         }else{
             var currectData = PM25_DATA[currectY][(currect.getMonth()+1)];
             var min = 11; //沒有測站時min會保持11
-            var pm25C = "";
-            var pm25M = "";
+            var pm25 = "";
             var site = "";
             for (var n = 0 ; n <currectData.length ;n++){
                 siteDistance = haversine(currectData[n]['lat'],currectData[n]['lon'],lat,lon);
                 if(siteDistance <= 10 && siteDistance < min )
                 {
                     var days = new Date(currectY, currectM, 0).getDate();
-                    pm25C = currectData[n]['pm25'];
-                    pm25M = currectData[n]['pm25']*days * 11; //每人每天約呼吸11m^3 之空氣
+                    pm25 = parseFloat( currectData[n]['pm25'] );
                     site = currectData[n]['siteName'];
                     min = siteDistance;
                 }
             }
             if(min == 11){
-                var data = {timeYM:currectYM, pm25C:"無資料", pm25M:"無資料", site:"無資料", distence:""};
+                var data = {timeYM:currectYM, pm25:"無資料", site:"無資料", distence:""};
                 setUI(data);
             }else{
-                var data = {timeYM:currectYM, pm25C:Math.round(pm25C)+"(微克/立方公分)", pm25M:Math.round(pm25M/1000)+"毫克", site: site, distence:" 距離"+Math.round(min)+"公里"};
+                var data = {timeYM:currectYM, pm25:Math.round(pm25)+"(微克/立方公尺)", site: site, distence:Math.round(min)+"公里"};
                 setUI(data);
-                sum += pm25M;
+                sum += pm25;
+                times++;
             }
         }
         currect = new Date();
@@ -104,10 +100,10 @@ function prapareUIData(startV,endV,lat,lon){
 
 function setUI(imf){
     appending = '\t<li data-role="collapsible" data-iconpos="right">'+
-                '\t\t<h2>'+imf["timeYM"]+"| "+imf["pm25C"]+"</h2>"+
+                '\t\t<h2>'+imf["timeYM"]+"| "+imf["pm25"]+"</h2>"+
                 '\t\t<ul data-role="listview">'+
-                '\t\t\t<li>總量：'+imf["pm25M"]+'</li>'+
-                '\t\t\t<li>測站：'+imf["site"]+imf["distence"]+'</li>'+
+                '\t\t\t<li>測站：'+imf["site"]+'</li>'+
+                '\t\t\t<li>距離：'+imf["distence"]+'</li>'+
                 '\t\t</ul>'+
                 '\t</li>';
     $("#results").append(appending);
