@@ -10,4 +10,5 @@ pm2.5終生濃度計算器
 
 ##部屬
 
-無論如何請在下載後先新增google map key， 在 www/js/google_map_key.js;
+無論如何請在下載後先新增google map key， 在 www/js/ 中，將 google_map_key-sample.js 填入 API Key 後改名為 google_map_key.js。
+
