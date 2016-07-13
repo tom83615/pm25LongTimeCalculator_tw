@@ -1,8 +1,0 @@
-{
-  "android": {
-    "release": {
-      "keystore": "release-key.keystore",
-      "alias": "pm25Calculator"
-    }
-  }
-}
